@@ -1,25 +1,17 @@
-class QueueError(???):  # Choose base class for the new exception.
-    #
-    #  Write code here
-    #
-
+class QueueError(IndexError):  # Choose base class for the new exception.
+    pass
 
 class Queue:
     def __init__(self):
-        #
-        # Write code here
-        #
+        self.queue = []        
 
     def put(self, elem):
-        #
-        # Write code here
-        #
+        self.queue.insert(0, elem)
 
     def get(self):
-        #
-        # Write code here
-        #
-
+        if len(self.queue) == 0:
+            raise QueueError
+        return self.queue.pop()
 
 que = Queue()
 que.put(1)
