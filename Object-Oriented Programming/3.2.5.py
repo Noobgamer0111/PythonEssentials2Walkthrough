@@ -11,10 +11,12 @@ class Stack:
         return val
 
 
-stack_object_1 = Stack()
-stack_object_2 = Stack()
+little_stack = Stack()
+another_stack = Stack()
+funny_stack = Stack()
 
-stack_object_1.push(3)
-stack_object_2.push(stack_object_1.pop())
+little_stack.push(1)
+another_stack.push(little_stack.pop() + 1)
+funny_stack.push(another_stack.pop() - 2)
 
-print(stack_object_2.pop())
+print(funny_stack.pop())
