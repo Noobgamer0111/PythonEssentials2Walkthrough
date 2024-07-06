@@ -1,8 +1,8 @@
-class Stack:
+=class Stack:
     def __init__(self):
-        self.stack_list = []
+        self.__stack_list = []
 
 
 stack_object = Stack()
-print(len(stack_object.stack_list))
+print(len(stack_object.__stack_list))
     
