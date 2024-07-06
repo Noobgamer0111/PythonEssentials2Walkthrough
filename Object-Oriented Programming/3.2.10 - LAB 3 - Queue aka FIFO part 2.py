@@ -10,6 +10,7 @@ class Queue:
     def get(self):
         if len(self.queue) > 0:
             elem = self.queue[-1]
+            del self.queue[-1]
             return elem
         else:
             raise QueueError
