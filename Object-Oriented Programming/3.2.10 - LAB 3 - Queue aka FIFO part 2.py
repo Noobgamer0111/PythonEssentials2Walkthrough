@@ -1,11 +1,21 @@
-class QueueError(???):
+class QueueError(IndexError):  # Choose base class for the new exception.
     pass
 
 
 class Queue:
-    #
-    # Code from the previous lab.
-    #
+    def __init__(self):
+        self.queue = []        
+
+    def put(self, elem):
+        self.queue.insert(0, elem)
+
+    def get(self):
+        if len(self.queue) > 0:
+        elem = self.queue[-1]
+        return self.queue.pop()
+    
+    def isempty(self):
+        return len(self.queue) == 0
 
 
 class SuperQueue(Queue):
