@@ -12,7 +12,7 @@ class Python:
 # Question 2: You're going to negate the __venomous property of the version_2 object, ignoring the fact that the property is private. How will you do this?
 
 # input: version_2 = Python()
- 
+version_3 = Python()
 version_3._Python__venomous = not version_3._Python__venomous
 
 # Question 3: Write an expression which checks if the version_2 object contains an instance property named constrictor (yes, constrictor!).
