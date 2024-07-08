@@ -1,9 +1,11 @@
 class Classy:
-    varia = 2
+    def other(self):
+        print("other")
+ 
     def method(self):
-        print(self.varia, self.var)
+        print("method")
+        self.other()
  
  
 obj = Classy()
-obj.var = 3
 obj.method()
