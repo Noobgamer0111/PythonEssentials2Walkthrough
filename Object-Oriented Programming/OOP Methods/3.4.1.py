@@ -1,7 +1,9 @@
 class Classy:
-    def method(self):
-        print("method")
+    def method(self, par):
+        print("method:", par)
 
 
 obj = Classy()
-obj.method()
+obj.method(1)
+obj.method(2)
+obj.method(3)
