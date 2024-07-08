@@ -1,8 +1,24 @@
-class Classy:
+class SuperOne:
     pass
 
 
-print(Classy.__module__)
-obj = Classy()
-print(obj.__module__)
+class SuperTwo:
+    pass
+
+
+class Sub(SuperOne, SuperTwo):
+    pass
+
+
+def printBases(cls):
+    print('( ', end='')
+
+    for x in cls.__bases__:
+        print(x.__name__, end=' ')
+    print(')')
+
+
+printBases(SuperOne)
+printBases(SuperTwo)
+printBases(Sub)
     
