@@ -1,11 +1,18 @@
 class Classy:
-    def __init__(self, value = None):
-        self.var = value
+    def visible(self):
+        print("visible")
+
+    def __hidden(self):
+        print("hidden")
 
 
-obj_1 = Classy("object")
-obj_2 = Classy()
+obj = Classy()
+obj.visible()
 
-print(obj_1.var)
-print(obj_2.var)
-    
+try:
+    obj.__hidden()
+except:
+    print("failed")
+
+obj._Classy__hidden()
+
