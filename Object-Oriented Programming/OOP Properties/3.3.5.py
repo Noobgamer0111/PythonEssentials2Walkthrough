@@ -9,9 +9,9 @@ class Python:
  
 # population and victims are class variables, while length and __venomous are instance variables (the latter is also private).
 
-# Question 2: You're going to negate the __venomous property of the version_2 object, ignoring the fact that the property is private. How will you do this?
+# Question 2: You're going to negate the __venomous property of the version_3 object, ignoring the fact that the property is private. How will you do this?
 
-# input: version_2 = Python()
+# input: version_3 = Python()
 version_3 = Python()
 version_3._Python__venomous = not version_3._Python__venomous
 
