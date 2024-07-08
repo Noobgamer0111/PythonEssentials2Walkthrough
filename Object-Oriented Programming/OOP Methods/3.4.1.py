@@ -1,11 +1,9 @@
 class Classy:
-    def other(self):
-        print("other")
- 
-    def method(self):
-        print("method")
-        self.other()
- 
- 
-obj = Classy()
-obj.method()
+    def __init__(self, value):
+        self.var = value
+
+
+obj_1 = Classy("object")
+
+print(obj_1.var)
+    
