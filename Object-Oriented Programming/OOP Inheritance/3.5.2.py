@@ -1,27 +1,17 @@
-# Initial code:
-<code>class Star:
-    def __init__(self, name, galaxy):
-        self.name = name
-        self.galaxy = galaxy
-
-    def __str__(self):
-        return self.name + ' in ' + self.galaxy
+class Vehicle:
+    pass
 
 
-sun = Star("Sun", "Milky Way")
-print(sun)
-    
-# Expected code: Removed "<code>" tag.
-
-class Star:
-    def __init__(self, name, galaxy):
-        self.name = name
-        self.galaxy = galaxy
-
-    def __str__(self):
-        return self.name + ' in ' + self.galaxy
+class LandVehicle(Vehicle):
+    pass
 
 
-sun = Star("Sun", "Milky Way")
-print(sun)
+class TrackedVehicle(LandVehicle):
+    pass
+
+
+for cls1 in [Vehicle, LandVehicle, TrackedVehicle]:
+    for cls2 in [Vehicle, LandVehicle, TrackedVehicle]:
+        print(issubclass(cls1, cls2), end="\t")
+    print()
     
