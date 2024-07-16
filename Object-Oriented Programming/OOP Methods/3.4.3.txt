@@ -1,0 +1,5 @@
+Reflection - Ability fo a program to manipulate values, properties and/or functions of an object
+at runtime.
+
+Introspection - Ability of a program to examine the type or properties of an object at
+runtime.
