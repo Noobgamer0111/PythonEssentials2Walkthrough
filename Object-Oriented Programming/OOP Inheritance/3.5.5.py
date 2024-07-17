@@ -1,20 +1,22 @@
-class Level1:
-    var = 100
+class Left:
+    var = "L"
+    var_left = "LL"
     def fun(self):
-        return 101
+        return "Left"
 
 
-class Level2(Level1):
-    var = 200
+class Right:
+    var = "R"
+    var_right = "RR"
     def fun(self):
-        return 201
+        return "Right"
 
 
-class Level3(Level2):
+class Sub(Left, Right):
     pass
 
 
-obj = Level3()
+obj = Sub()
 
-print(obj.var, obj.fun())
+print(obj.var, obj.var_left, obj.var_right, obj.fun())
     
