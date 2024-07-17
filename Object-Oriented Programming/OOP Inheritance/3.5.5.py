@@ -8,7 +8,7 @@ class Super:
 
 class Sub(Super):
     def __init__(self, name):
-        Super.__init__(self, name)
+        super().__init__(name)
 
 
 obj = Sub("Andy")
