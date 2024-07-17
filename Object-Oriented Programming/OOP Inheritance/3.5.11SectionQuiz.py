@@ -87,3 +87,62 @@ print(isinstance(rocky, GuardDog), isinstance(luna, GuardDog))
 # True False
 # False True
 
+# Question 3: What is the expected output of the following piece of code?
+
+# print(luna is luna, rocky is luna)
+# print(rocky.kennel)
+
+# Answer:
+class Dog:
+    kennel = 0
+    def __init__(self, breed):
+        self.breed = breed
+        Dog.kennel += 1
+    def __str__(self):
+        return self.breed + " says: Woof!"
+
+class SheepDog(Dog):
+    def __str__(self):
+        return super().__str__() + " Don't run away, Little Lamb!"
+
+class GuardDog(Dog):
+    def __str__(self):
+        return super().__str__() + " Stay where you are, Mister Intruder!"
+ 
+rocky = SheepDog("Collie")
+luna = GuardDog("Dobermann")
+print(luna is luna, rocky is luna)
+print(rocky.kennel)
+
+# Expected output:
+# True False
+# 2
+
+# Question 4: Define a SheepDog's subclass called LowlandDog, and equip it with an __str__() method
+# overidding an inherited method of the same name. The new dog's __str__() should return the string
+# "Woof! I don't like mountains!".
+
+# Answer:
+
+class Dog:
+    kennel = 0
+    def __init__(self, breed):
+        self.breed = breed
+        Dog.kennel += 1
+    def __str__(self):
+        return self.breed + " says: Woof!"
+
+class SheepDog(Dog):
+    def __str__(self):
+        return super().__str__() + " Don't run away, Little Lamb!"
+
+class GuardDog(Dog):
+    def __str__(self):
+        return super().__str__() + " Stay where you are, Mister Intruder!"
+ 
+rocky = SheepDog("Collie")
+luna = GuardDog("Dobermann")
+
+class LowlandDog(SheepDog):
+	def __str__(self):
+		return Dog.__str__(self) + " I don't like mountains!"
