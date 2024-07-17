@@ -1,17 +1,12 @@
+# Testing properties: class variables.
 class Super:
-    def __init__(self, name):
-        self.name = name
-
-    def __str__(self):
-        return "My name is " + self.name + "."
-
+    supVar = 1
 
 class Sub(Super):
-    def __init__(self, name):
-        super().__init__(name)
+    subVar = 2
 
+obj = Sub()
 
-obj = Sub("Andy")
-
-print(obj)
+print(obj.subVar)
+print(obj.supVar)
     
