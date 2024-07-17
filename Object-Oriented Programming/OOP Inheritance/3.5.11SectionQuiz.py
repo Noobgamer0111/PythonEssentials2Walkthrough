@@ -139,10 +139,10 @@ class SheepDog(Dog):
 class GuardDog(Dog):
     def __str__(self):
         return super().__str__() + " Stay where you are, Mister Intruder!"
- 
-rocky = SheepDog("Collie")
-luna = GuardDog("Dobermann")
 
 class LowlandDog(SheepDog):
 	def __str__(self):
 		return Dog.__str__(self) + " I don't like mountains!"
+ 
+rocky = SheepDog("Collie")
+luna = GuardDog("Dobermann")
