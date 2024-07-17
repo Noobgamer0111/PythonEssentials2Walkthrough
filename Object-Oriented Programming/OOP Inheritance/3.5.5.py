@@ -12,7 +12,7 @@ class Right:
         return "Right"
 
 
-class Sub(Left, Right):
+class Sub(Right, Left):
     pass
 
 
