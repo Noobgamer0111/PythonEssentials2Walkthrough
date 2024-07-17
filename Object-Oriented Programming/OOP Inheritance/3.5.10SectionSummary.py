@@ -71,10 +71,10 @@ class Mouse:
         return "Hi, my name is " + self.name
  
 class LabMouse(Mouse):
-    tpass
+    # Remove the line that contains "tpass"
  
-professor_mouse = LabMouse("Professor Mouser")
-print(professor_mouse, Mouse.Population) # Prints "Hi, my name is Professor Mouser 1"
+    professor_mouse = LabMouse("Professor Mouser")
+    print(professor_mouse, Mouse.Population) # Prints "Hi, my name is Professor Mouser 1"
  
 
 # 7. In order to find any object/class property, Python looks for it inside:
@@ -93,11 +93,11 @@ class Mouse:
         self.name = name
  
     def __str__(self):
-    return "My name is " + self.name
+        return "My name is " + self.name
  
 class AncientMouse(Mouse):
     def __str__(self):
-    return "Meum nomen est " + self.name
+        return "Meum nomen est " + self.name
  
 mus = AncientMouse("Caesar") # Prints "Meum nomen est Caesar"
 print(mus)
