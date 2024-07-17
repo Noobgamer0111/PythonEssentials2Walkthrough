@@ -21,4 +21,8 @@ class GuardDog(Dog):
 rocky = SheepDog("Collie")
 luna = GuardDog("Dobermann")
 
-# Question 1:
+print(rocky)
+print(luna)
+# Question 1:Question 1: The declaration of the Snake class is given below. 
+# Enrich the class with a method named increment(), adding 1 to the __victims property.
+
