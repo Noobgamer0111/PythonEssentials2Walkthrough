@@ -1,14 +1,25 @@
-class A:
-    pass
+class Top:
+    def m_top(self):
+        print("top")
 
-class B(A):
-    pass
 
-class C(A):
-    pass
+class Middle_Left(Top):
+    def m_middle(self):
+        print("middle_left")
 
-class D(B, C):
-    pass
 
-d = D()
+class Middle_Right(Top):
+    def m_middle(self):
+        print("middle_right")
+
+
+class Bottom(Middle_Left, Middle_Right):
+	def m_bottom(self):
+		print("bottom")
+
+
+object = Bottom()
+object.m_bottom()
+object.m_middle()
+object.m_top()
     
