@@ -1,9 +1,4 @@
 # Question 1: A data structure described as LIFO is actually a:
-# tree
-# heap
-# list
-# stack
-
 # A1: stack
 
 # Question 2: If the class’s constructor is declared as below, which one of the assignments is valid?
@@ -18,7 +13,6 @@ class A:
     def __init__(self):
         self.a = 1
 
-
 class B(A):
     def __init__(self):
         # Put selected line here.
@@ -29,7 +23,6 @@ class B(A):
 class A:
     def __init__(self,v):
         self.__a = v + 1
-
 
 a = A(0)
 print(a.__a)
@@ -44,7 +37,6 @@ class A:
         self.v = v
         return v
 
-
 a = A()
 print(a.set(a.v + 1))
 # A5: 2
@@ -55,7 +47,6 @@ class A:
     def __init__(self,v = 0):
         self.Y = v
         A.X += v
-
 
 a = A()
 b = A(1)
