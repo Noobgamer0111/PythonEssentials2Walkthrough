@@ -12,3 +12,8 @@ def reciprocal(n):
 print(reciprocal(2))
 print(reciprocal(0))
     
+# Expected output: 
+# Everything went fine
+# 0.5
+# Division failed
+# None
