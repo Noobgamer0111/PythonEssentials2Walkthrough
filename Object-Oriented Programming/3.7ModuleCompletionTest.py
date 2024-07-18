@@ -29,7 +29,7 @@ class B(A):
     def __init__(self):
         # Put selected line here.
         self.b = 2
-# A3: A.__init__(1)
+# A3: A.__init__(self)
 # The example shows a superclass named A, which defines its own constructor.
 # The A class is then used as a base to create a subclass named B, which defines
 # its own constructor. The B class constructor should now invoke the constructor
@@ -93,8 +93,9 @@ class A:
 
 print(hasattr(A,'A'))
 # A7: True
-# Explanation: The hasattr() function returns True if a specified object has some specified attribute. The function takes two arguments: 
-# the name of the object whose attribute is to be tested, and the name of the attribute.
+# Explanation: The hasattr() function returns True if a specified object has some specified 
+# attribute. The function takes two arguments:the name of the object whose attribute is to
+# be tested, and the name of the attribute.
 # The code returns True because class A has the attribute A.
 
 # Question 8: What will be the result of executing the following code?
@@ -105,6 +106,9 @@ class A:
 a = A(1)
 print(hasattr(a,'A'))
 # A8: it will raise an exception
+# The code will raise a TypeError exception, because the __init__() method takes only one argument
+# (self), but two positional arguments are passed upon object a instantiation (self and 1).
+# The print() function is not executed.
 
 # Question 9: What will be the result of executing the following code?
 class A:
@@ -121,6 +125,10 @@ class C(B):
 o = C()
 print(o)
 # A9: it will print b
+# Explanation: The customized __str__() method is called because the print() function is 
+# invoked on the object o. As there is no __str__() method within the C class,
+# the string printed to the console (i.e. b) is produced within the B class,
+# which means that the __str__() method has been inherited by the C class.
 
 # Question 10: What will be the result of executing the following code?
 class A:
@@ -134,6 +142,9 @@ class C(B):
 
 print(issubclass(C,A))
 # A10: True
+# Explanation: The code will print True to the console because the result of the test 
+# issubclass(C, A) evaluates to True. The function issubclass(C, A) checks whether class C 
+# is a subclass of class A, and returns True when the test is positive, and False otherwise.
 
 # Question 11: What will be the result of executing the following code?
 class A:
@@ -151,6 +162,12 @@ class C(B,A):
 o = C()
 o.c()
 # A11: it will print b
+# The code will not raise an exception because it is consistent with the Method Resolution Order (MRO).
+# The code will output b to the console, because class C inherits from classes B and A respectively,
+# and if any of the subclasses defines a method of the same name as existing in the superclass
+# – in this case, class B defines the method def a(self): 
+# – the new name overrides any of the previous instances of the name (in this case, print('b') overrides print('a')).
+# As a result, even though the c method defined in class C makes a reference to the a method defined in class A, the invocation o.c() results in printing b, not a to the screen.
 
 # Question 12: What will be the result of executing the following code?\
 class A:
@@ -167,6 +184,10 @@ class C(A, B):
 o = C()
 print(o)
 # A12: it will print a
+# Explanation: The code will print a to the screen, because the class named first in the 
+# multiple inheritance path (in this case, class C(A, B):) passes its attribute value to the child class
+# (in this case, class C). The code will not raise an exception, 
+# because it’s compatible with the MRO rules.
 
 # Question 13: What will be the result of executing the following code?
 class A:
@@ -181,6 +202,13 @@ class C(B):
 o = C()
 print(o.v)
 # A13: it will print 1
+# Let’s analyze the code:
+# Class A sets the v variable to 2
+# Class B, which inherits after class A, sets the v variable to 1
+# Class C inherits from class B
+# An object o is created from class C, and the v variable is accessed and its value is printed to the screen.
+# Because the subclass B defines a class variable of the same name as existing in the superclass A,
+# the old v value is overridden by the new one, and inherited by the C class.
 
 # Question 14: What will be the result of executing the following code?
 def f(x):
@@ -195,7 +223,17 @@ def f(x):
 
 f(1)
 f(0)
-# A14: it will print acac
+# A14: it will print bcac
+# Let’s analyze the code:
+# An f function is defined, and it takes one parameter x.
+# The function is called two times:
+# - first invocation with 1 passed as an argument, in which case no exception is raised in the try 
+# block, so the else block is executed, printing b to the screen. Because the finally block is always executed no matter what happens earlier,
+# c is printed to the console.
+# - second invocation with 0 passed as an argument, in which case an exception is raised (division by zero is illegal,
+# so the except block is executed) and a is printed to the console. 
+# Again, because the finally block is always executed, c is printed to the screen a second time.
+# The four strings are “glued” together using the end keyword parameter.
 
 # Question 15: What will be the result of executing the following code?
 try:
@@ -203,6 +241,9 @@ try:
 except Exception as e:
     print(len(e.args))
 # A15: it will print 3
+# The except branch is executed and intercepts the object carrying information about the exception. 
+# The args property, which is a tuple, gathers all arguments passed to the Exception class constructor: 1, 2, and 3.
+# The len function computes the length of the tuple (i.e. 3), which is printed to the console.
 
 # Question 16: What will be the result of executing the following code?
 class Ex(Exception):
@@ -216,7 +257,14 @@ except Ex as e:
     print(e)
 except Exception as e:
     print(e)
-# A17: it will print ex
+# A16: it will print ex
+# Let’s analyze this code snippet:
+# First, the try block raises an Ex Exception with the ex string as its argument.
+# Then, the Ex Exception receives the ex string in the msg variable.
+# Afterwards, the replicated string msg + msg is passed on to the superclass. 
+# However, the content of the msg variable is stored in self.args.
+# Finally, the raised exception will fall under the Ex Exception. 
+# It prints the content of the e variable in the console, which is ex.
 
 # Question 17: What will be the result of executing the following code?
 class I:
@@ -237,3 +285,13 @@ class I:
 for x in I():
     print(x,end='')
 # A17: it will print abc
+# Let’s analyze this code snippet:
+
+# First, a for loop using the x variable iterates through the already defined I() generator.
+# The generator class initializes the self.s = 'abc' and self.i = 0 variables within the constructor.
+# The __next__ method compares if the value in i is equal to the length of s.
+# Since it is not, v is assigned the first character of s, which is a, i is incremented by one,
+# v is returned and printed in the console.
+# The end=’’ argument in the print function will prevent new lines, so all the outputs will be shown on the same line.
+# The iteration continues for the remaining characters in s. The b and c characters are also printed in the console.
+# When the condition self.i == len(self.s) becomes true, a StopIteration is raised. This terminates the execution.
