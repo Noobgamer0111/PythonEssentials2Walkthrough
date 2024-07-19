@@ -8,13 +8,11 @@
 # (i.e. in a context that requires a series of values, like a for loop).
 
 # 3. A conditional expression is an expression built using the if-else operator. For example:
-
 print(True if 0 >= 0 else False)
  # Outputs: True
 
 # 4. A list comprehension becomes a generator when used inside parentheses (used inside brackets,
 # it produces a regular list). For example:
-
 for x in (el * 2 for el in range(5)):
     print(x)
  
