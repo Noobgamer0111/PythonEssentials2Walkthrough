@@ -231,3 +231,14 @@ datetime_2 = datetime(2019, 11, 27, 0, 0, 0)
 print(datetime_1 - datetime_2)
 # Answer: 11:27:22
 
+from datetime import timedelta
+
+delta = timedelta(weeks = 1, days = 7, hours = 11)
+print(delta * 2)
+# Answer: 28 days, 22:00:00
+
+import calendar
+
+calendar.setfirstweekday(calendar.SUNDAY)
+print(calendar.weekheader(3))
+# Answer: Sun Mon Tue Wed Thu Fri Sat
