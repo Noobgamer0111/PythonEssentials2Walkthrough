@@ -205,3 +205,29 @@ numbers = [i*i for in range(5)]
 print(foo)
 # To get output: [1, 9]
 # Answer:
+foo = list(filter(lambda x: x % 2, numbers))
+
+import random
+a = random.randint(0, 100)
+b = random.randint(10, 100, 3)
+c = random.choice((0, 100, 3))
+print (a, b, c)
+# Answer:
+
+import os
+
+os.mkdir('pictures')
+os.chdir('pictures')
+
+print(os.getcwd())
+
+# Answer: The code will print the path to the created directory.
+
+from datetime import datetime
+
+datetime_1 = datetime(2019, 11, 27, 11, 27, 22)
+datetime_2 = datetime(2019, 11, 27, 0, 0, 0)
+
+print(datetime_1 - datetime_2)
+# Answer: 11:27:22
+
