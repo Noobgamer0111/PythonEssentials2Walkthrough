@@ -139,3 +139,37 @@ o = C()
 o.c()
 # Answer: b
 
+try:
+    raise Exception(1, 2, 3)
+except Exception as e:
+    print(len(e.args))
+# Answer: 3
+
+def my_fun(n):
+    s = '+'
+    for i in range(n):
+        s += s
+        yield s
+
+for x in my_fun(2):
+    print(x, end='')
+# Answer: +++++++
+
+class I:
+    def __init__(self):
+        self.s = 'abc'
+        self.i = 0
+
+    def __iter__(self):
+        return self
+
+def __next__(self):
+    if self.i == len(self.s):
+        raise StopIteration
+    v = self.s[self.i]
+    self.i += 1
+    return v
+
+for x in I():
+    print(x, end='')
+# Answer:
