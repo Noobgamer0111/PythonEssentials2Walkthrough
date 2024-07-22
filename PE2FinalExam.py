@@ -188,3 +188,20 @@ print(r() + s())
 q = s.read(1)
 # Answer: one character from the stream.
 
+for x in open('file', 'rt'):
+    print(x)
+# Answer: reads file line by line.
+
+number = [0, 2, 7, 9, 10]
+# Insert line of code here.
+print(list(foo))
+
+# To get output: [0, 4, 49, 81, 100]
+# Answer:
+foo = map(lambda num: num ** 2, number)
+
+numbers = [i*i for in range(5)]
+# Insert line of code here.
+print(foo)
+# To get output: [1, 9]
+# Answer:
