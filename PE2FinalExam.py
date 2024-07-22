@@ -63,3 +63,26 @@ print(len(x))
 print(chr(ord('p') + 2))
 # Answer: r
 
+print(float("1.3"))
+# Answer: 1.3
+
+class Class:
+    def __init__(self, val=0):
+        pass
+# Answer: object = Class(1, 2)
+
+class A:
+    def __init__(self, v=2):
+        self.v = v
+
+    def set(self, v=1):
+        self.v += v
+        return self.v
+
+
+a = A()
+b = a
+b.set()
+print(a.v)
+# Answer: 3
+
