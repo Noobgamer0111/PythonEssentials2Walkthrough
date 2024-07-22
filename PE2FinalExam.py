@@ -163,13 +163,28 @@ class I:
     def __iter__(self):
         return self
 
-def __next__(self):
-    if self.i == len(self.s):
-        raise StopIteration
-    v = self.s[self.i]
-    self.i += 1
-    return v
+    def __next__(self):
+        if self.i == len(self.s):
+            raise StopIteration
+        v = self.s[self.i]
+        self.i += 1
+        return v
 
 for x in I():
     print(x, end='')
-# Answer:
+# Answer: abc
+
+def o(p):
+    def q():
+        return '*' * p
+    return q
+
+
+r = o(1)
+s = o(2)
+print(r() + s())
+# Answer: ***
+
+q = s.read(1)
+# Answer: one character from the stream.
+
